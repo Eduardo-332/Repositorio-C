@@ -1,0 +1,19 @@
+{
+    "kind": "v12.0",
+    "properties": {
+        "administratorLogin": "adminterraform",
+        "version": "12.0",
+        "state": "Ready",
+        "fullyQualifiedDomainName": "terraformexpertossql.database.windows.net",
+        "privateEndpointConnections": [],
+        "minimalTlsVersion": "1.2",
+        "publicNetworkAccess": "Enabled",
+        "restrictOutboundNetworkAccess": "Disabled"
+    },
+    "location": "centralus",
+    "tags": {},
+    "id": "/subscriptions/7709e161-6444-4dbb-b615-0f70c6d1273e/resourceGroups/proyectoterraform/providers/Microsoft.Sql/servers/terraformexpertossql",
+    "name": "terraformexpertossql",
+    "type": "Microsoft.Sql/servers",
+    "apiVersion": "2022-02-01-preview"
+}
