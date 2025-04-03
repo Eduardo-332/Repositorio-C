@@ -1,0 +1,62 @@
+## Estructura de la Base de Datos DBTerraform
+
+🗄️ **DBTerraform** *(Base de Datos)*  
+├── 🏷️ **Usuarios** *(Clientes y Administradores)*  
+│   ├── `id_usuario` *(INT, PRIMARY KEY, AUTOINCREMENT)*  
+│   ├── `nombre` *(NVARCHAR(100), NOT NULL)*  
+│   ├── `correo` *(NVARCHAR(255), UNIQUE, NOT NULL)*  
+│   ├── `contrasena` *(NVARCHAR(255), NOT NULL)*  
+│   ├── `tipo_usuario` *(NVARCHAR(50), CHECK('Cliente', 'Administrador'))*  
+│   ├── `fecha_registro` *(DATETIME, DEFAULT GETDATE())*  
+│
+├── 🏷️ **Productos**  
+│   ├── `id_producto` *(INT, PRIMARY KEY, AUTOINCREMENT)*  
+│   ├── `nombre` *(NVARCHAR(255), NOT NULL)*  
+│   ├── `descripcion` *(TEXT)*  
+│   ├── `precio` *(DECIMAL(10,2), NOT NULL)*  
+│   ├── `stock` *(INT, NOT NULL)*  
+│   ├── `imagen_url` *(NVARCHAR(500))*  
+│   ├── `fecha_creacion` *(DATETIME, DEFAULT GETDATE())*  
+│
+├── 🏷️ **Ordenes** *(Pedidos)*  
+│   ├── `id_orden` *(INT, PRIMARY KEY, AUTOINCREMENT)*  
+│   ├── `id_usuario` *(INT, FOREIGN KEY -> Usuarios(id_usuario), NOT NULL)*  
+│   ├── `fecha_orden` *(DATETIME, DEFAULT GETDATE())*  
+│   ├── `estado` *(NVARCHAR(50), CHECK('Pendiente', 'En Proceso', 'Enviado', 'Entregado', 'Cancelado'))*  
+│   ├── `total` *(DECIMAL(10,2), NOT NULL)*  
+│
+├── 🏷️ **DetallesOrden**  
+│   ├── `id_detalle` *(INT, PRIMARY KEY, AUTOINCREMENT)*  
+│   ├── `id_orden` *(INT, FOREIGN KEY -> Ordenes(id_orden), NOT NULL)*  
+│   ├── `id_producto` *(INT, FOREIGN KEY -> Productos(id_producto), NOT NULL)*  
+│   ├── `cantidad` *(INT, NOT NULL)*  
+│   ├── `precio_unitario` *(DECIMAL(10,2), NOT NULL)*  
+│   ├── `subtotal` *(GENERATED COLUMN, cantidad * precio_unitario)*  
+│
+├── 🏷️ **Carrito** *(Compras)*  
+│   ├── `id_carrito` *(INT, PRIMARY KEY, AUTOINCREMENT)*  
+│   ├── `id_usuario` *(INT, FOREIGN KEY -> Usuarios(id_usuario), NOT NULL)*  
+│   ├── `id_producto` *(INT, FOREIGN KEY -> Productos(id_producto), NOT NULL)*  
+│   ├── `cantidad` *(INT, NOT NULL)*  
+│   ├── `fecha_agregado` *(DATETIME, DEFAULT GETDATE())*  
+│
+├── 🏷️ **Pagos**  
+│   ├── `id_pago` *(INT, PRIMARY KEY, AUTOINCREMENT)*  
+│   ├── `id_orden` *(INT, FOREIGN KEY -> Ordenes(id_orden), NOT NULL)*  
+│   ├── `metodo_pago` *(NVARCHAR(50), CHECK('Tarjeta de Crédito', 'PayPal', 'Transferencia'))*  
+│   ├── `estado_pago` *(NVARCHAR(50), CHECK('Pendiente', 'Pagado', 'Rechazado'))*  
+│   ├── `fecha_pago` *(DATETIME, DEFAULT GETDATE())*  
+│
+├── 🏷️ **Archivos** *(Almacenamiento de imágenes y documentos)*  
+│   ├── `id_archivo` *(INT, PRIMARY KEY, AUTOINCREMENT)*  
+│   ├── `id_usuario` *(INT, FOREIGN KEY -> Usuarios(id_usuario), NOT NULL)*  
+│   ├── `nombre_archivo` *(NVARCHAR(255), NOT NULL)*  
+│   ├── `url_archivo` *(NVARCHAR(500), NOT NULL)*  
+│   ├── `fecha_subida` *(DATETIME, DEFAULT GETDATE())*  
+│
+├── 🏷️ **CacheConsultas** *(Para consultas frecuentes)*  
+│   ├── `id_cache` *(INT, PRIMARY KEY, AUTOINCREMENT)*  
+│   ├── `clave` *(NVARCHAR(255), UNIQUE, NOT NULL)*  
+│   ├── `valor` *(TEXT, NOT NULL)*  
+│   ├── `fecha_expiracion` *(DATETIME, NOT NULL)*
+
