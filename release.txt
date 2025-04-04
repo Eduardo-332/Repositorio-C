@@ -2,6 +2,7 @@
 echo "# Repositorio-C" >> README.md
 git init
 git add README.md
+git add .
 git commit -m "Proyecto Terraform E-Commerce"
 git branch -M main
 git remote add origin https://github.com/Eduardo-332/Repositorio-C.git
@@ -18,3 +19,7 @@ terraform init
 terraform plan
 terraform apply
 terraform plan -var-file="local.tfvars"
+terraform init -upgrade
+
+--------------- INSTALAR 
+winget install sqlcmd
