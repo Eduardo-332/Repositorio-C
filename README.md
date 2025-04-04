@@ -1,36 +1,8 @@
 
 
+20171001204 Allan Eduardo Estrada Vasquez
+20141004605	Sergio Reyniery Garay Godoy
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-20171001204
-20141004605	Allan Eduardo Estrada Vasquez
-Sergio Reyniery Garay Godoy
  
 Arquitectura
 
