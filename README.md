@@ -1,7 +1,7 @@
 # Repositorio-C
 
-
 20171001204 Allan Eduardo Estrada Vasquez
+
 20141004605	Sergio Reyniery Garay Godoy
  
 Arquitectura
