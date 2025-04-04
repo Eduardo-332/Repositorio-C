@@ -1,0 +1,9 @@
+
+/webapp
+  ├── pages/
+  │    ├── index.js  <-- (Aquí está el código de arriba)
+  ├── public/
+  │    ├── styles.css  <-- (Aquí va tu CSS)
+  │    ├── app.js  <-- (Si necesitas más lógica en un archivo separado)
+  ├── package.json
+  ├── next.config.js
