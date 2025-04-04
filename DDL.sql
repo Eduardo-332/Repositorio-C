@@ -3,7 +3,7 @@ USE proyectoterraformdb;
 
 CREATE SCHEMA terradb;
 
--- Tabla de Usuarios (Clientes y Administradores)
+-- Tabla de 🔐 Usuarios (Clientes y Administradores)
 CREATE TABLE terradb.Usuarios (
     id_usuario INT IDENTITY(1,1) PRIMARY KEY,
     nombre NVARCHAR(100) NOT NULL,
